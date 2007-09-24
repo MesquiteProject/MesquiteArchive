@@ -57,6 +57,7 @@
 		<delete>
 			<fileset dir="${mesquitefolder.dir}">
 				<include name="${scriptfile}"/>
+				<include name="${macscriptfile}"/>
 			</fileset>
 		</delete>
 		
@@ -210,6 +211,7 @@
 		
 		<property name="javadoc.dir" location="${dist.dir}/javadoc"/>
 		<property name="scriptfile" value="run_mesquite.sh"/>
+		<property name="macscriptfile" value="Run_Mesquite_OSX.command"/>
 		
 		<property file="${buildfiles.dir}/${os.name}.properties"/>
 		<property file="${buildfiles.dir}/build.properties"/>
