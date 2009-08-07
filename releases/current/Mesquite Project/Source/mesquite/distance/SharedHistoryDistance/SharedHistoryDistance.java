@@ -79,17 +79,20 @@ public class SharedHistoryDistance extends IncTaxaDistanceSource implements Incr
 	}
 	/*.................................................................................................................*/
 	public String getName() {
-		return "Shared History Distances implied by Tree";  
+		return "Shared History Distances implied by Tree (C matrix of Garland and Ives 2000)";  
 	}
 	   	 
 	public String getParameters() {
-	 	return "Shared History Distances among taxa implied by tree from : " + treeSourceTask.getName();
+	 	return "Shared History Distances implied by Tree from : " + treeSourceTask.getName();
 	}
 	/*.................................................................................................................*/
 	   	 
 	/** returns an explanation of what the module does.*/
 	public String getExplanation() {
-		return "Distances among taxa implied by length of shared history (distance from root to most recent ancestor).  Unassigned branches are treated as of length 1.0." ;
+		return "Off-diagonals are shared evolutionary history implied by tree (distance from root to most recent ancestor). " +
+		"Diagonals are distance from root to each tip.  " +
+		"This is the DSC matrix of DOS PDDIST (C matrix of Garland and Ives 2000), i.e., the phylogenetic variance-covariance matrix as would be used for PGLS analyses.  " +
+		"Unassigned branches are treated as of length 1.0." ;
 	}
 	/*.................................................................................................................*/
     public String getAuthors(){
