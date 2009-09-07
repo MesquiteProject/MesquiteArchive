@@ -1,0 +1,69 @@
+#NEXUS
+[written Sun May 04 14:32:21 PDT 2008 by Mesquite  version 2.01+ (build j65) at Thrandina.local/10.0.1.8 (Wayne Maddison)]
+
+BEGIN TAXA;
+	TITLE Taxa;
+	DIMENSIONS NTAX=3;
+	TAXLABELS
+		taxon_1 taxon_2 taxon_3 
+	;
+	BLOCKID WM114861837ad1;
+
+END;
+
+
+Begin MESQUITE;
+		MESQUITESCRIPTVERSION 2;
+		TITLE AUTO;
+		tell ProjectCoordinator;
+		getEmployee #mesquite.minimal.ManageTaxa.ManageTaxa;
+		tell It;
+			setID 0 3143466173537330668 WM114861837ad1;
+		endTell;
+		getWindow;
+		tell It;
+			setResourcesState false true 100;
+			setPopoutState 400;
+			setExplanationSize 0;
+			setAnnotationSize 0;
+			setFontIncAnnot 0;
+			setFontIncExp 0;
+			setSize 700 464;
+			setLocation 16 25;
+			setFont SanSerif;
+			setFontSize 10;
+		endTell;
+		newAssistant  #mesquite.basic.ExamplesNavigator.ExamplesNavigator;
+		tell It;
+			getWindow;
+			tell It;
+					setExplanationSize 0;
+					setAnnotationSize 0;
+					setFontIncAnnot 0;
+					setFontIncExp 0;
+					setSize 700 447;
+					setLocation 16 25;
+					setFont SanSerif;
+					setFontSize 14;
+					setActive;
+				setExplanation 'Here are various Mesquite example files to introduce you to using Mesquite.  To navigate from one to another, use the buttons below.  ^nIf you''re new to Mesquite and want to learn what it can or might do, hit the "Show page" button in the blue-green panel.';
+				setTitle Introduction_to_Mesquite;
+				toggleFileNames off;
+				setPrevButtonName Previous;
+				setNextButtonName Next;
+				addFileLink Introducing_the_basic_functioning_of_Mesquite  'basic_operation/01-basics.nex';
+				addFileLink Taxa_and_taxa_blocks  'taxa/01-taxa.nex';
+				addFileLink 'Character data: editing and analyzing.'  'characters/01-characters.nex';
+				addFileLink Examples_with_continuous_characters  'continuous/01-editContinuous.nex';
+				addFileLink Viewing_phylogenies_and_gene_trees  'tree_viewing/01-treeWindow.nex';
+				addFileLink Editing_and_manipulating_trees  'tree_manipulation/01-editingTrees.nex';
+				addFileLink Charts  'charts/01-charts.nex';
+				addWebLink Mesquite_Manual  'mesquite:docs/mesquite/manual.html';
+				addFileLink Return_to_main_introduction  '../Introduction.nex';
+			endTell;
+			showWindow;
+		endTell;
+		endTell;
+end;
+
+
