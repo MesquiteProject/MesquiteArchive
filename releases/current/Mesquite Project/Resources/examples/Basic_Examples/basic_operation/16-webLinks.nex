@@ -1,0 +1,47 @@
+#NEXUS
+[written Sun May 04 14:41:24 PDT 2008 by Mesquite  version 2.01+ (build j65) at Thrandina.local/10.0.1.8 (Wayne Maddison)]
+Begin MESQUITE;
+		MESQUITESCRIPTVERSION 2;
+		TITLE AUTO;
+		tell ProjectCoordinator;
+		getWindow;
+		tell It;
+			setResourcesState false true 100;
+			setPopoutState 400;
+			setExplanationSize 0;
+			setAnnotationSize 0;
+			setFontIncAnnot 0;
+			setFontIncExp 0;
+			setSize 700 464;
+			setLocation 9 25;
+			setFont SanSerif;
+			setFontSize 10;
+		endTell;
+		newAssistant  #mesquite.basic.ExamplesNavigator.ExamplesNavigator;
+		tell It;
+			setNextFileName '../introduction.nex';
+			setPrevFileName '15-annotations.nex';
+			getWindow;
+			tell It;
+					setExplanationSize 0;
+					setAnnotationSize 0;
+					setFontIncAnnot 0;
+					setFontIncExp 0;
+					setSize 700 447;
+					setLocation 9 25;
+					setFont SanSerif;
+					setFontSize 14;
+					setActive;
+				setExplanation 'The files that Mesquite reads can either be local, for instance on your hard drive, or at a URL on the internet.  You can read the latter using the "URL" item in the Open menu of the file menu.  For instance, if you touch the Go button below, you will be taken to a file on Mesquite''s website.^n^nOnce you touch on the "Go" button, you will not have a button to return to this file.';
+				setTitle Web_Links;
+				toggleFileNames off;
+				setPrevButtonName Previous;
+				setNextButtonName Return_to_Intro;
+				addFileLink Go_to_file_on_website  'http://mesquiteproject.org/mesquite/salticidae/salticidae.nex';
+			endTell;
+			showWindow;
+		endTell;
+		endTell;
+end;
+
+

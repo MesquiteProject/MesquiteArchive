@@ -1,0 +1,215 @@
+#NEXUS
+[written Sat Jun 07 11:24:31 PDT 2008 by Mesquite  version 2.5 BETA 2 (build j76) at Thrandina.local/192.168.0.136 (Wayne Maddison)]
+
+BEGIN TAXA;
+	TITLE Taxa;
+	DIMENSIONS NTAX=9;
+	TAXLABELS
+		g1 g2 g3 g4 g5 g6 g7 g8 g9 
+	;
+	BLOCKID WM1148c1835ae15;
+
+END;
+
+
+BEGIN CHARACTERS;
+	TITLE  'Matrix in file "02-coalescence2.nex"';
+	DIMENSIONS  NCHAR=19;
+	FORMAT DATATYPE = DNA GAP = - MISSING = ?;
+	MATRIX
+	g1  AACATCTGGGAACCGTGCG
+
+	g2  C?CGTCTGAGACCCGTCCG
+
+	g3  AAGATACGGGTACCGTCCG
+
+	g4  AACATACGGGAAGCGTCCG
+
+	g5  AAGGTACGGGAACCGTCCG
+
+	g6  AAAGTACGGGACCCGTGCG
+
+	g7  AACGTACGGGAACCGTGCG
+
+	g8  AAAGCACGGGAACCGTGCG
+
+	g9  AACGCACGAGAACCGTGCG
+
+
+;
+
+
+		BLOCKID WM1148c1835cf0;
+
+
+END;
+
+BEGIN NOTES;
+
+	TEXT  FILE TEXT = 'At left is a "Multi Tree Window" to show a series of gene trees simulated by coalescence within a population.  You can scroll down to see other such simulated trees.  Note that the root tends to be between 1000 and 2000 generations deep.^n^nThe effective population size is 1000 (haploid), and can be changed using the "Set Ne.." menu item in the Multi-Tree menu of the Trees window.';
+
+END;
+
+BEGIN CODONS;
+	CODESET * UNTITLED   =  universal:  1 -  19;
+
+
+END;
+
+BEGIN ASSUMPTIONS;
+	TYPESET * UNTITLED   =  unord:  1 -  19;
+TYPESET Current_Parsimony_Models   =  unord:  1 -  19;
+
+END;
+
+BEGIN MESQUITECHARMODELS;
+	ProbModelSet * UNTITLED   =  'Jukes-Cantor':  1 -  19;
+END;
+
+Begin MESQUITE;
+		MESQUITESCRIPTVERSION 2;
+		TITLE AUTO;
+		tell ProjectCoordinator;
+		getEmployee #mesquite.minimal.ManageTaxa.ManageTaxa;
+		tell It;
+			setID 0 4451700786596653131 WM1148c1835ae15;
+		endTell;
+		getEmployee #mesquite.charMatrices.ManageCharacters.ManageCharacters;
+		tell It;
+			setID 0 4972659033594616137 WM1148c1835cf0;
+			checksum 0 1947097330 WM1148c1835cf0;
+		endTell;
+		getWindow;
+		tell It;
+			setResourcesState false false 72;
+			setPopoutState 400;
+			setExplanationSize 0;
+			setAnnotationSize 0;
+			setFontIncAnnot 0;
+			setFontIncExp 0;
+			setSize 422 474;
+			setLocation 13 22;
+			setFont SanSerif;
+			setFontSize 10;
+		endTell;
+		newAssistant  #mesquite.trees.MultiTreeWindowMaker.MultiTreeWindowMaker;
+		tell It;
+			setTaxa #4451700786596653131;
+			setNumColumns 4;
+			setNumRows 4;
+			getTreeSource #mesquite.trees.DefiniteTreeSource.DefiniteTreeSource;
+			tell It;
+				setTreeSource #mesquite.trees.SimulateTree.SimulateTree;
+				tell It;
+					setTreeSimulator  #mesquite.coalesce.CoalescentTrees.CoalescentTrees;
+					tell It;
+						getEmployee #mesquite.coalesce.NeutralCoalescence.NeutralCoalescence;
+						tell It;
+							setEffective 1000;
+							toggleExponential on;
+						endTell;
+					endTell;
+					setSeed 1189475568974;
+				endTell;
+				assignNumTrees 100;
+			endTell;
+			makeWindow;
+			toggleLegendBotRight off;
+			setNamesVisible on;
+			getWindow;
+			tell It;
+				popAsTile false;
+				popOut;
+				setExplanationSize 0;
+				setAnnotationSize 0;
+				setFontIncAnnot 0;
+				setFontIncExp 0;
+				setSize 626 641;
+				setLocation 456 22;
+				setFont SanSerif;
+				setFontSize 10;
+			endTell;
+			getTreeDrawCoordinator #mesquite.trees.BasicTreeDrawCoordinator.BasicTreeDrawCoordinator;
+			tell It;
+				suppress;
+				setTreeDrawer  #mesquite.trees.ArcTree.ArcTree;
+				tell It;
+					setNodeLocs #mesquite.trees.NodeLocsStandard.NodeLocsStandard;
+					tell It;
+						stretchToggle off;
+						branchLengthsToggle on;
+						toggleScale on;
+						toggleBroadScale off;
+						toggleCenter on;
+						toggleEven on;
+						setFixedScaling 2500.0;
+					endTell;
+					setEdgeWidth 3;
+					orientUp;
+				endTell;
+				setBackground White;
+				setBranchColor Black;
+				showNodeNumbers off;
+				showBranchColors on;
+				labelBranchLengths off;
+				centerBrLenLabels on;
+				showBrLensUnspecified on;
+				showBrLenLabelsOnTerminals on;
+				setBrLenLabelColor 0 0 255;
+				setNumBrLenDecimals 6;
+				desuppress;
+				getEmployee #mesquite.trees.BasicDrawTaxonNames.BasicDrawTaxonNames;
+				tell It;
+					setFont SanSerif;
+					setFontSize 10;
+					setColor Black;
+					toggleColorPartition on;
+					toggleShadePartition off;
+					toggleNodeLabels on;
+					toggleCenterNodeNames off;
+					toggleShowNames on;
+					namesAngle ?;
+				endTell;
+			endTell;
+			showWindow;
+			getEmployee #mesquite.ornamental.ColorTreeByPartition.ColorTreeByPartition;
+			tell It;
+				colorByPartition off;
+			endTell;
+			getEmployee #mesquite.ornamental.DrawTreeAssocDoubles.DrawTreeAssocDoubles;
+			tell It;
+				setOn on;
+				setDigits 4;
+				writeAsPercentage off;
+				toggleHorizontal on;
+				setFontSize 10;
+				setOffset 0  0;
+			endTell;
+		endTell;
+		newAssistant  #mesquite.basic.ExamplesNavigator.ExamplesNavigator;
+		tell It;
+			setNextFileName '03-coalescenceDepth.nex';
+			setPrevFileName '01-coalescence.nex';
+			getWindow;
+			tell It;
+					setExplanationSize 0;
+					setAnnotationSize 0;
+					setFontIncAnnot 0;
+					setFontIncExp 0;
+					setSize 350 457;
+					setLocation 13 22;
+					setFont SanSerif;
+					setFontSize 10;
+					setActive;
+				setExplanation 'At left is a "Multi Tree Window" to show a series of gene trees simulated by coalescence within a population.  You can scroll down to see other such simulated trees.  Note that the root tends to be between 1000 and 2000 generations deep.^n^nThe effective population size is 1000 (haploid), and can be changed using the "Set Ne.." menu item in the Coalescent SImulation submenu of the Multi-Tree menu of the Trees window.';
+				setTitle Gene_trees;
+				toggleFileNames off;
+				setPrevButtonName Previous;
+				setNextButtonName Next;
+			endTell;
+			showWindow;
+		endTell;
+		endTell;
+end;
+
+
