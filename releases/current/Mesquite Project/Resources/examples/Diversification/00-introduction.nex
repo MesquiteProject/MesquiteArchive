@@ -1,0 +1,46 @@
+#NEXUS
+[written Sun May 04 16:20:41 PDT 2008 by Mesquite  version 2.01+ (build j65) at Thrandina.local/10.0.1.8 (Wayne Maddison)]
+Begin MESQUITE;
+		MESQUITESCRIPTVERSION 2;
+		TITLE AUTO;
+		tell ProjectCoordinator;
+		getWindow;
+		tell It;
+			setResourcesState false true 100;
+			setPopoutState 400;
+			setExplanationSize 0;
+			setAnnotationSize 0;
+			setFontIncAnnot 0;
+			setFontIncExp 0;
+			setSize 553 359;
+			setLocation 7 29;
+			setFont SanSerif;
+			setFontSize 10;
+		endTell;
+		newAssistant  #mesquite.basic.ExamplesNavigator.ExamplesNavigator;
+		tell It;
+			setNextFileName '01-lineagesThroughTime.nex';
+			getWindow;
+			tell It;
+					setExplanationSize 0;
+					setAnnotationSize 0;
+					setFontIncAnnot 0;
+					setFontIncExp 0;
+					setSize 553 342;
+					setLocation 7 29;
+					setFont SanSerif;
+					setFontSize 10;
+					setActive;
+				setExplanation 'Phylogeny can be used to explore species diversification, speciation and extinction.  Here are some example files of relevant Mesquite features.^n^nTo go from one file to another, hit the "Next" button';
+				setTitle Species_Diversification;
+				toggleFileNames off;
+				setPrevButtonName Previous;
+				setNextButtonName Next;
+				addFileLink Return_to_main_Introduction  '../Introduction.nex';
+			endTell;
+			showWindow;
+		endTell;
+		endTell;
+end;
+
+
