@@ -482,3 +482,4 @@ class LTCellAnnotation implements Annotatable {
 		ownerModule.setAnnotation(row, s, notify);
 	}
  }
+
